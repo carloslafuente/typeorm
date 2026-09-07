@@ -21,6 +21,7 @@ export class DriverUtils {
             "capacitor",
             "cordova",
             "expo",
+            "libsql",
             "nativescript",
             "react-native",
             "sqljs",

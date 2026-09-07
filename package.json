@@ -52,6 +52,7 @@
     "./browser/driver/aurora-data-api/AuroraDataApiDriver.js": "./browser/platform/BrowserDisabledDriversDummy.js",
     "./browser/driver/better-sqlite3/BetterSqlite3Driver.js": "./browser/platform/BrowserDisabledDriversDummy.js",
     "./browser/driver/cockroachdb/CockroachDriver.js": "./browser/platform/BrowserDisabledDriversDummy.js",
+    "./browser/driver/libsql/LibSqlDriver.js": "./browser/platform/BrowserDisabledDriversDummy.js",
     "./browser/driver/mongodb/MongoDriver.js": "./browser/platform/BrowserDisabledDriversDummy.js",
     "./browser/driver/mongodb/MongoQueryRunner.js": "./browser/platform/BrowserDisabledDriversDummy.js",
     "./browser/driver/mongodb/bson.typings.js": "./browser/platform/BrowserDisabledDriversDummy.js",
@@ -105,6 +106,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@google-cloud/spanner": "^8.11.0",
+    "@libsql/client": "^0.18.0",
     "@sap/hana-client": "^2.29.27",
     "@stryker-mutator/core": "^9.6.1",
     "@stryker-mutator/mocha-runner": "^9.6.1",
@@ -157,6 +159,7 @@
   },
   "peerDependencies": {
     "@google-cloud/spanner": "^8.0.0",
+    "@libsql/client": "^0.18.0",
     "@sap/hana-client": "^2.14.22",
     "better-sqlite3": "^12.0.0",
     "ioredis": "^5.0.4",
@@ -174,6 +177,9 @@
   },
   "peerDependenciesMeta": {
     "@google-cloud/spanner": {
+      "optional": true
+    },
+    "@libsql/client": {
       "optional": true
     },
     "@sap/hana-client": {
@@ -263,6 +269,9 @@
     "sqlite",
     "sqlite-orm",
     "better-sqlite3",
+    "libsql",
+    "libsql-orm",
+    "turso",
     "sql-server",
     "sql-server-orm"
   ]

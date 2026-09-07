@@ -5,6 +5,7 @@ import type { CapacitorDataSourceOptions } from "../driver/capacitor/CapacitorDa
 import type { CockroachDataSourceOptions } from "../driver/cockroachdb/CockroachDataSourceOptions"
 import type { CordovaDataSourceOptions } from "../driver/cordova/CordovaDataSourceOptions"
 import type { ExpoDataSourceOptions } from "../driver/expo/ExpoDataSourceOptions"
+import type { LibSqlDataSourceOptions } from "../driver/libsql/LibSqlDataSourceOptions"
 import type { MongoDataSourceOptions } from "../driver/mongodb/MongoDataSourceOptions"
 import type { MysqlDataSourceOptions } from "../driver/mysql/MysqlDataSourceOptions"
 import type { NativescriptDataSourceOptions } from "../driver/nativescript/NativescriptDataSourceOptions"
@@ -27,6 +28,7 @@ export type DataSourceOptions =
     | CockroachDataSourceOptions
     | CordovaDataSourceOptions
     | ExpoDataSourceOptions
+    | LibSqlDataSourceOptions
     | MongoDataSourceOptions
     | MysqlDataSourceOptions
     | NativescriptDataSourceOptions

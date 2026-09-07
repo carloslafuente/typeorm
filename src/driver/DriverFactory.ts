@@ -8,6 +8,7 @@ import { CockroachDriver } from "./cockroachdb/CockroachDriver"
 import { CordovaDriver } from "./cordova/CordovaDriver"
 import type { Driver } from "./Driver"
 import { ExpoDriver } from "./expo/ExpoDriver"
+import { LibSqlDriver } from "./libsql/LibSqlDriver"
 import { MongoDriver } from "./mongodb/MongoDriver"
 import { MysqlDriver } from "./mysql/MysqlDriver"
 import { NativescriptDriver } from "./nativescript/NativescriptDriver"
@@ -46,6 +47,8 @@ export class DriverFactory {
                 return new CordovaDriver(dataSource)
             case "expo":
                 return new ExpoDriver(dataSource)
+            case "libsql":
+                return new LibSqlDriver(dataSource)
             case "mariadb":
                 return new MysqlDriver(dataSource)
             case "mongodb":
@@ -77,6 +80,7 @@ export class DriverFactory {
                     "cockroachdb",
                     "cordova",
                     "expo",
+                    "libsql",
                     "mariadb",
                     "mongodb",
                     "mssql",

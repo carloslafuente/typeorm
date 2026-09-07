@@ -24,6 +24,22 @@ jobs:
         with:
           name: better-sqlite3-node-${{ inputs.node-version }}-linux
 
+  libsql:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: ./.github/actions/setup-node
+        with:
+          node-version: ${{ inputs.node-version }}
+          download-build: true
+
+      - run: jq 'map(select(.type == "libsql"))' ormconfig.sample.json > ormconfig.json
+      - run: pnpm exec c8 pnpm run test:ci
+
+      - uses: ./.github/actions/upload-coverage
+        with:
+          name: libsql-node-${{ inputs.node-version }}-linux
+
   cockroachdb:
     if: ${{ inputs.node-version >= 24 }}
     runs-on: ubuntu-latest

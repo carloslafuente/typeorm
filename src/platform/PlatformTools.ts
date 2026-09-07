@@ -47,6 +47,8 @@ export class PlatformTools {
             "expo-sqlite",
             // Google Cloud Spanner
             "@google-cloud/spanner",
+            // LibSQL
+            "@libsql/client",
             // Microsoft SQL Server
             "mssql",
             // MongoDB

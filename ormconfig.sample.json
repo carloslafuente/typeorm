@@ -41,6 +41,12 @@
   },
   {
     "skip": false,
+    "type": "libsql",
+    "database": "file:temp/libsql.db",
+    "logging": false
+  },
+  {
+    "skip": false,
     "type": "mariadb",
     "host": "localhost",
     "port": 3307,
