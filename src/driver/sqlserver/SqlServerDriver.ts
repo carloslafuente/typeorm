@@ -700,7 +700,10 @@ export class SqlServerDriver implements Driver {
             column.type === "simple-array" ||
             column.type === "simple-json"
         ) {
-            return "ntext"
+            // "ntext" is deprecated by SQL Server and is rejected by its JSON
+            // functions (ISJSON, JSON_VALUE, OPENJSON), so store these as
+            // "nvarchar(MAX)" instead — see getColumnLength() for the length.
+            return "nvarchar"
         } else if (column.type === "simple-enum") {
             return "nvarchar"
         } else if (column.type === "dec") {
@@ -767,6 +770,11 @@ export class SqlServerDriver implements Driver {
      */
     getColumnLength(column: ColumnMetadata | TableColumn): string {
         if (column.length) return column.length.toString()
+
+        // serialized columns hold arbitrarily long payloads, so they must not
+        // fall through to the 255 default applied to nvarchar below
+        if (column.type === "simple-array" || column.type === "simple-json")
+            return "MAX"
 
         if (
             column.type === "varchar" ||

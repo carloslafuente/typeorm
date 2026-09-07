@@ -216,10 +216,16 @@ describe("database schema > column types > mssql", () => {
                     .type.should.be.equal("geometry")
                 table!
                     .findColumnByName("simpleArray")!
-                    .type.should.be.equal("ntext")
+                    .type.should.be.equal("nvarchar")
+                table!
+                    .findColumnByName("simpleArray")!
+                    .length.should.be.equal("MAX")
                 table!
                     .findColumnByName("simpleJson")!
-                    .type.should.be.equal("ntext")
+                    .type.should.be.equal("nvarchar")
+                table!
+                    .findColumnByName("simpleJson")!
+                    .length.should.be.equal("MAX")
                 table!
                     .findColumnByName("simpleEnum")!
                     .type.should.be.equal("nvarchar")
